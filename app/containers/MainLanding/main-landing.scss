@@ -1,0 +1,57 @@
+.main__frame {
+  position: relative;
+
+  .main__jumbotron {
+    position: relative;
+    height: 100vh;
+    .jumbo_container {
+    }
+    .jumbo_arrow {
+      position: absolute;
+      bottom: 0px;
+      right: 60px;
+      height: 80px;
+      width: 100px;
+      background-color: aquamarine;
+    }
+  }
+
+  .main__nav--big {
+    position: absolute;
+    top: 100vh;
+    right: 60px;
+
+    &.--fixed {
+      position: fixed;
+      top: 60px;
+    }
+
+    .nav_button {
+      height: 80px;
+      width: 100px;
+    }
+  }
+}
+
+.top-nav-logo {
+  // width: 100px;
+  padding-top: 10px;
+  img {
+    width: auto;
+    height: auto;
+  }
+}
+
+/* css for both resized desktops and mobiles */
+@media only
+/* Desktops and laptops ----------- */
+screen and (max-width : 600px),
+/* Smartphones (portrait and landscape) ----------- */
+screen and (max-device-width : 480px)
+{
+  .main__frame {
+    .main__body {
+      margin-top: 54px;
+    }
+  }
+}

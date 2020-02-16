@@ -1,0 +1,80 @@
+$nav_color: #24282d;
+
+.main__frame {
+  .mdc-drawer {
+    background-color: $nav_color;
+  }
+}
+
+.main__header.mdc-top-app-bar {
+  top: 0px;
+  background-color: $nav_color;
+  z-index: 10;
+
+  //css for small screens
+  .top-bar__small-screen {
+    display: none;
+    .top-bar__left-section {
+      width: 10%;
+    }
+    .top-bar__right-section {
+      width: 10%;
+    }
+
+    .top-nav-logo {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  // css for large screens
+  .top-bar__large-screen {
+    display: flex;
+    .top-bar__tab-section {
+      width: 400px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      display: inline-grid;
+      
+      .tab-bar-layout__tabs {
+        height: 100%;
+        width: 100%;
+        .tab-layout__tab {
+          height: 100% !important;
+          width: 25%;
+          float: left;
+          text-transform: capitalize;
+
+          .mdc-tab__text-label {
+            color: white;
+          }
+
+          &:hover {
+            background-color: #4c545e;
+          }
+          &.tab-layout__tab--active {
+            border-bottom: 3px solid var(--mdc-theme-primary);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* css for both resized desktops and mobiles */
+@media only
+/* Desktops and laptops ----------- */
+screen and (max-width : 700px),
+/* Smartphones (portrait and landscape) ----------- */
+screen and (max-device-width : 480px)
+{
+  .main__header.mdc-top-app-bar {
+    top: -1px;
+    .top-bar__large-screen {
+      display: none;
+    }
+    .top-bar__small-screen {
+      display: flex;
+    }
+  }
+}

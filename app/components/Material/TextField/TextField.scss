@@ -1,0 +1,16 @@
+.m-txt.m-txt {
+  // &.mdc-text-field{
+  //   label {
+  //     left: 48px;
+  //     top: 18px;
+  //   }
+  // }
+  &.mdc-text-field--textarea {
+    .mdc-text-field-character-counter {
+      bottom: 0px;
+    }
+    textarea {
+      margin-bottom: 0;
+    }
+  }
+}
