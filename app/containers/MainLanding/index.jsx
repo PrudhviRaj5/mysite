@@ -80,7 +80,11 @@ const MainLanding = () => {
     <div className="main__frame">
 
       <div className="main__jumbotron">
-        <div className="jumbo_container">Container Text</div>
+        <div className="jumbo_container">
+          <h1>Prudhvi Raj</h1>
+          <p className="lead">Engineering Manager</p>
+        </div>
+        <div className="overlay" />
         <VanillaPaper
           className="jumbo_arrow"
           onClick={() => window.scrollTo({
