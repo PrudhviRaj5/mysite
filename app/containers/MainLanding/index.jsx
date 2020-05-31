@@ -50,6 +50,32 @@ const MainLanding = () => {
     return () => window.removeEventListener('scroll', scrollEvent);
   }, []);
 
+  const navBarRenderData = [
+    {
+      name: 'Profile',
+      ref: refMap.profileRef,
+    },
+    {
+      name: 'Experience',
+      ref: refMap.experienceRef,
+    },
+    {
+      name: 'Education',
+      ref: refMap.educationRef,
+    },
+    {
+      name: 'Skills',
+      ref: refMap.skillsRef,
+    },
+    {
+      name: 'Projects',
+      ref: refMap.projectsRef,
+    }, {
+      name: 'Contact',
+      ref: refMap.contactRef,
+    },
+  ];
+
   return (
     <div className="main__frame">
 
@@ -71,65 +97,19 @@ const MainLanding = () => {
           '--fixed': menuFixed,
         })}
       >
-        <VanillaPaper
-          className="nav_button"
-          onClick={() => window.scrollTo({
-            top: refMap.profileRef.current.offsetTop,
-            behavior: 'smooth',
-          })}
-        >
-          Profile
-        </VanillaPaper>
-        <VanillaPaper
-          className="nav_button"
-          type="button"
-          onClick={() => window.scrollTo({
-            top: refMap.experienceRef.current.offsetTop,
-            behavior: 'smooth',
-          })}
-        >
-          Experience
-        </VanillaPaper>
-        <VanillaPaper
-          className="nav_button"
-          type="button"
-          onClick={() => window.scrollTo({
-            top: refMap.educationRef.current.offsetTop,
-            behavior: 'smooth',
-          })}
-        >
-          Education
-        </VanillaPaper>
-        <VanillaPaper
-          className="nav_button"
-          type="button"
-          onClick={() => window.scrollTo({
-            top: refMap.skillsRef.current.offsetTop,
-            behavior: 'smooth',
-          })}
-        >
-          Skills
-        </VanillaPaper>
-        <VanillaPaper
-          className="nav_button"
-          type="button"
-          onClick={() => window.scrollTo({
-            top: refMap.projectsRef.current.offsetTop,
-            behavior: 'smooth',
-          })}
-        >
-          Projects
-        </VanillaPaper>
-        <VanillaPaper
-          className="nav_button"
-          type="button"
-          onClick={() => window.scrollTo({
-            top: refMap.contactRef.current.offsetTop,
-            behavior: 'smooth',
-          })}
-        >
-          Contact
-        </VanillaPaper>
+        {
+          navBarRenderData.map((section) => (
+            <VanillaPaper
+              className="nav_button"
+              onClick={() => window.scrollTo({
+                top: section.ref.current.offsetTop,
+                behavior: 'smooth',
+              })}
+            >
+              {section.name}
+            </VanillaPaper>
+          ))
+        }
       </nav>
 
       <div style={{ height: '400px' }} ref={refMap.profileRef}>
