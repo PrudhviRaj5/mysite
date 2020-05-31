@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { Button, ButtonIcon } from '@rmwc/button';
+import { Button } from '@rmwc/button';
 
 import './CustomButton.scss';
 
@@ -14,28 +14,18 @@ const CustomButton = (props) => {
     ...rest
   } = props;
 
-  const clName = {
-    'custom-button': true,
-    'm-bt': true,
-  };
-
-  if (className) {
-    clName[className] = true;
-  }
-  if (rounded) {
-    clName['round-button'] = true;
-  }
-
   return (
     <Button
       raised
-      className={cx(clName)}
+      icon={icon}
+      className={cx({
+        'custom-button': true,
+        'm-bt': true,
+        'round-button': rounded,
+      }, className)}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     >
-      {
-        icon ? <ButtonIcon icon={icon} /> : null
-      }
       { children }
     </Button>
   );

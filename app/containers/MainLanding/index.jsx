@@ -2,19 +2,20 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-// import PropTypes from 'prop-types';
 import cx from 'classnames';
 import {
-  // Switch,
-  // Route,
-  // Link,
-  // Redirect,
   withRouter,
 } from 'react-router-dom';
 import { Icon } from '@rmwc/icon';
 import VanillaPaper from 'components/Material/Paper/VanillaPaper';
 
+import Profile from './Profile';
 import Experience from './Experience';
+import Education from './Education';
+import Skills from './Skills';
+import Projects from './Projects';
+import Contact from './Contact';
+import Footer from './Footer';
 
 import './main-landing.scss';
 
@@ -23,6 +24,7 @@ const MainLanding = () => {
   const [refMap] = useState({
     profileRef: React.createRef(),
     experienceRef: React.createRef(),
+    educationRef: React.createRef(),
     skillsRef: React.createRef(),
     projectsRef: React.createRef(),
     contactRef: React.createRef(),
@@ -92,6 +94,16 @@ const MainLanding = () => {
           className="nav_button"
           type="button"
           onClick={() => window.scrollTo({
+            top: refMap.educationRef.current.offsetTop,
+            behavior: 'smooth',
+          })}
+        >
+          Education
+        </VanillaPaper>
+        <VanillaPaper
+          className="nav_button"
+          type="button"
+          onClick={() => window.scrollTo({
             top: refMap.skillsRef.current.offsetTop,
             behavior: 'smooth',
           })}
@@ -121,31 +133,34 @@ const MainLanding = () => {
       </nav>
 
       <div style={{ height: '400px' }} ref={refMap.profileRef}>
-        Profile
+        <Profile />
       </div>
 
       <div style={{ height: '400px' }} ref={refMap.experienceRef}>
         <Experience />
       </div>
 
+      <div style={{ height: '400px' }} ref={refMap.educationRef}>
+        <Education />
+      </div>
+
       <div style={{ height: '400px' }} ref={refMap.skillsRef}>
-        Skills
+        <Skills />
       </div>
 
       <div style={{ height: '400px' }} ref={refMap.projectsRef}>
-        Projects
+        <Projects />
       </div>
 
-      <div style={{ height: '400px' }} ref={refMap.contactRef}>
-        Contact
+      <div ref={refMap.contactRef}>
+        <Contact />
+      </div>
+
+      <div style={{ height: '300px' }}>
+        <Footer />
       </div>
     </div>
   );
 };
-
-// TopNavLayout.propTypes = {
-//   history: PropTypes.any.isRequired,
-//   location: PropTypes.any.isRequired,
-// };
 
 export default withRouter(MainLanding);

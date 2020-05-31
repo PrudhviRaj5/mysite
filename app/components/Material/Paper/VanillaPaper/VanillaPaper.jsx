@@ -39,14 +39,11 @@ class VanillaPaper extends Component {
 
     const passProps = {
       style,
+      className: cx({
+        'zt-vanilla-paper': true,
+        '--rounded': rounded,
+      }, className),
     };
-    const newClassName = {
-      'zt-vanilla-paper': true,
-    };
-    if (rounded) {
-      newClassName['--rounded'] = true;
-    }
-    passProps.className = cx(newClassName, className);
 
     const { children } = this.props;
     const { elevation } = this.state;
@@ -80,7 +77,7 @@ VanillaPaper.propTypes = {
   style: PropTypes.instanceOf(Object),
   className: PropTypes.string,
   rounded: PropTypes.bool,
-  children: PropTypes.instanceOf(Element).isRequired,
+  children: PropTypes.any.isRequired,
   elevationIn: PropTypes.number,
   elevationOut: PropTypes.number,
 };

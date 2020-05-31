@@ -2,7 +2,7 @@ import React from 'react';
 
 const Profile = () => {
   return (
-    <div>Experince</div>
+    <div>Profile</div>
   );
 };
 
