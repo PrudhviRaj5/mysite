@@ -71,14 +71,14 @@ screen and (max-width : 700px),
 /* Smartphones (portrait and landscape) ----------- */
 screen and (max-device-width : 480px)
 {
-  .main__body{
-    .content-center-page.contact-me-page {
-      width: calc(100% - 40px);
-    }
+  .content-center-page.contact-me-page {
+      width: 100%;
+      margin: 0;
   }
   .contact-me-heading {
     font-size: 2em;
   }
+  
   .contact-form {
     grid-template-columns: auto;
   
