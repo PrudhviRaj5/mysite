@@ -50,29 +50,6 @@ const config = {
         },
       }),
     ],
-    splitChunks: {
-      chunks: 'all',
-      minSize: 0,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 10,
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name(module) {
-            const packageName = module.context.match(
-              /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
-            )[1];
-            return `npm.${packageName.replace('@', '')}`;
-          },
-        },
-        // default: {
-        //   minChunks: 2,
-        //   priority: -20,
-        //   reuseExistingChunk: true,
-        //   enforce: true,
-        // },
-      },
-    },
   },
 };
 
