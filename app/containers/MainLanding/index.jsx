@@ -29,26 +29,9 @@ const MainLanding = () => {
     projectsRef: React.createRef(),
     contactRef: React.createRef(),
   });
+
   const [menuFixed, setMenuFixed] = useState(false);
-
-  const scrollEvent = () => {
-    if (refMap.profileRef.current.getBoundingClientRect().top <= 60) {
-      if (!menuFixed) {
-        setMenuFixed(true);
-      }
-    } else {
-      // eslint-disable-next-line no-lonely-if
-      if (!menuFixed) {
-        setMenuFixed(false);
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', scrollEvent);
-
-    return () => window.removeEventListener('scroll', scrollEvent);
-  }, []);
+  const [sectionHighlighted, setSectionHighlighted] = useState('Profile');
 
   const navBarRenderData = [
     {
@@ -75,6 +58,31 @@ const MainLanding = () => {
       ref: refMap.contactRef,
     },
   ];
+
+  const scrollEvent = () => {
+    if (refMap.profileRef.current.getBoundingClientRect().top <= 60) {
+      if (!menuFixed) {
+        setMenuFixed(true);
+      }
+    } else {
+      // eslint-disable-next-line no-lonely-if
+      if (!menuFixed) {
+        setMenuFixed(false);
+      }
+    }
+    const scrolledUpSections = navBarRenderData
+      .filter((nav) => nav.ref.current.getBoundingClientRect().top <= 0);
+
+    if (scrolledUpSections.length > 0) {
+      setSectionHighlighted(scrolledUpSections[scrolledUpSections.length - 1].name);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollEvent);
+
+    return () => window.removeEventListener('scroll', scrollEvent);
+  }, []);
 
   return (
     <div className="main__frame">
@@ -104,7 +112,9 @@ const MainLanding = () => {
         {
           navBarRenderData.map((section) => (
             <VanillaPaper
-              className="nav_button"
+              className={cx('nav_button', {
+                '--focused': sectionHighlighted === section.name,
+              })}
               onClick={() => window.scrollTo({
                 top: section.ref.current.offsetTop,
                 behavior: 'smooth',

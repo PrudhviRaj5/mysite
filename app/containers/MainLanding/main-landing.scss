@@ -82,6 +82,11 @@
     .nav_button {
       height: 80px;
       width: 100px;
+
+      &.--focused {
+        background-color: grey;
+        color: white;
+      }
     }
   }
 }
