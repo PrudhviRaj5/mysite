@@ -100,7 +100,7 @@ const MainLanding = () => {
             behavior: 'smooth',
           })}
         >
-          <Icon icon="favorite" />
+          <Icon icon="keyboard_arrow_down" className="jumbo_arrow_icon" />
         </VanillaPaper>
       </div>
 
