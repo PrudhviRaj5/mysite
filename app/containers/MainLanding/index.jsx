@@ -7,6 +7,7 @@ import {
   withRouter,
 } from 'react-router-dom';
 import { Icon } from '@rmwc/icon';
+import { CollapsibleList } from '@rmwc/list';
 import VanillaPaper from 'components/Material/Paper/VanillaPaper';
 
 import Profile from './Profile';
@@ -17,6 +18,7 @@ import Projects from './Projects';
 import Contact from './Contact';
 import Footer from './Footer';
 
+import '@rmwc/list/collapsible-list.css';
 import './main-landing.scss';
 
 
@@ -32,6 +34,7 @@ const MainLanding = () => {
 
   const [menuFixed, setMenuFixed] = useState(false);
   const [sectionHighlighted, setSectionHighlighted] = useState('Profile');
+  const [smallNavOpen, setSmallNavOpen] = useState(false);
 
   const navBarRenderData = [
     {
@@ -124,6 +127,34 @@ const MainLanding = () => {
             </VanillaPaper>
           ))
         }
+      </nav>
+
+      <nav
+        className={cx('main__nav--small', {
+          '--fixed': menuFixed,
+        })}
+      >
+        <CollapsibleList
+          handle={(
+            <Icon
+              icon="favorite_outline"
+              onIcon="favorite"
+              onClick={() => setSmallNavOpen(!smallNavOpen)}
+            />
+          )}
+          open={smallNavOpen}
+        >
+          <div
+            style={{
+              padding: '1rem',
+              background: 'red',
+              color: 'white',
+              display: 'inline-block',
+            }}
+          >
+            Favorited!
+          </div>
+        </CollapsibleList>
       </nav>
 
       <div style={{ height: '400px' }} ref={refMap.profileRef}>
