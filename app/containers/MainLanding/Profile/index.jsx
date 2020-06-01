@@ -1,6 +1,5 @@
 import React from 'react';
 import ProfilePicture from 'assets/images/PrudhviRaj.jpg';
-import TextField from 'components/Material/TextField';
 
 import './profile.scss';
 
