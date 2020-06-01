@@ -103,7 +103,7 @@ const MainLanding = () => {
             behavior: 'smooth',
           })}
         >
-          <Icon icon="favorite" />
+          <Icon icon="keyboard_arrow_down" className="jumbo_arrow_icon" />
         </VanillaPaper>
       </div>
 
@@ -157,7 +157,7 @@ const MainLanding = () => {
         </CollapsibleList>
       </nav>
 
-      <div style={{ height: '400px' }} ref={refMap.profileRef}>
+      <div ref={refMap.profileRef}>
         <Profile />
       </div>
 
