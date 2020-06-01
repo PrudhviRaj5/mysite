@@ -89,6 +89,43 @@
       }
     }
   }
+
+  .main__nav--small {
+    display: none;
+    background-color: #222222;
+    width: 100%;
+
+    &.--fixed {
+      position: fixed;
+      top: 0;
+    }
+    .rmwc-collapsible-list__handle {
+      height: 50px;
+      position: relative;
+      .rmwc-icon {
+        position: absolute;
+        right: 20px;
+        font-size: 40px;
+        color: white;
+        padding-top: 5px;
+      }
+    }
+    .rmwc-collapsible-list__children {
+      background-color: #222;
+      color: white;
+
+      .nav_button {
+        span {
+          width: 100%;
+          display: block;
+          text-align: center;
+        }
+        &.--focused {
+          font-weight: 800;
+        }
+      }
+    }
+  }
 }
 
 .top-nav-logo {
@@ -110,6 +147,13 @@ screen and (max-device-width : 480px)
   .main__frame {
     .main__body {
       margin-top: 54px;
+    }
+
+    .main__nav--big {
+      display: none;
+    }
+    .main__nav--small {
+      display: block;
     }
   }
 }

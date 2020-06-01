@@ -1,13 +1,14 @@
 import React, {
   useEffect,
   useState,
+  useRef,
 } from 'react';
 import cx from 'classnames';
 import {
   withRouter,
 } from 'react-router-dom';
 import { Icon } from '@rmwc/icon';
-import { CollapsibleList } from '@rmwc/list';
+import { CollapsibleList, ListItem } from '@rmwc/list';
 import VanillaPaper from 'components/Material/Paper/VanillaPaper';
 
 import Profile from './Profile';
@@ -32,9 +33,11 @@ const MainLanding = () => {
     contactRef: React.createRef(),
   });
 
-  const [menuFixed, setMenuFixed] = useState(false);
+  const [bigNavFixed, setBigNavFixed] = useState(false);
+  const [smallNavFixed, setSmallNavFixed] = useState(false);
   const [sectionHighlighted, setSectionHighlighted] = useState('Profile');
   const [smallNavOpen, setSmallNavOpen] = useState(false);
+  const manualScroll = useRef(0);
 
   const navBarRenderData = [
     {
@@ -64,20 +67,34 @@ const MainLanding = () => {
 
   const scrollEvent = () => {
     if (refMap.profileRef.current.getBoundingClientRect().top <= 60) {
-      if (!menuFixed) {
-        setMenuFixed(true);
+      if (!bigNavFixed) {
+        setBigNavFixed(true);
       }
     } else {
       // eslint-disable-next-line no-lonely-if
-      if (!menuFixed) {
-        setMenuFixed(false);
+      if (!bigNavFixed) {
+        setBigNavFixed(false);
       }
     }
-    const scrolledUpSections = navBarRenderData
-      .filter((nav) => nav.ref.current.getBoundingClientRect().top <= 0);
 
-    if (scrolledUpSections.length > 0) {
-      setSectionHighlighted(scrolledUpSections[scrolledUpSections.length - 1].name);
+    if (refMap.profileRef.current.getBoundingClientRect().top <= 50) {
+      if (!smallNavFixed) {
+        setSmallNavFixed(true);
+      }
+    } else {
+      // eslint-disable-next-line no-lonely-if
+      if (!smallNavFixed) {
+        setSmallNavFixed(false);
+      }
+    }
+
+    if (!manualScroll.current) {
+      const scrolledUpSections = navBarRenderData
+        .filter((nav) => nav.ref.current.getBoundingClientRect().top <= 50);
+
+      if (scrolledUpSections.length > 0) {
+        setSectionHighlighted(scrolledUpSections[scrolledUpSections.length - 1].name);
+      }
     }
   };
 
@@ -109,7 +126,7 @@ const MainLanding = () => {
 
       <nav
         className={cx('main__nav--big', {
-          '--fixed': menuFixed,
+          '--fixed': bigNavFixed,
         })}
       >
         {
@@ -118,10 +135,15 @@ const MainLanding = () => {
               className={cx('nav_button', {
                 '--focused': sectionHighlighted === section.name,
               })}
-              onClick={() => window.scrollTo({
-                top: section.ref.current.offsetTop,
-                behavior: 'smooth',
-              })}
+              onClick={() => {
+                manualScroll.current = 1;
+                window.scrollTo({
+                  top: section.ref.current.offsetTop,
+                  behavior: 'smooth',
+                });
+                setSectionHighlighted(section.name);
+                setTimeout(() => { manualScroll.current = 0; }, 1500);
+              }}
             >
               {section.name}
             </VanillaPaper>
@@ -129,31 +151,43 @@ const MainLanding = () => {
         }
       </nav>
 
+      {smallNavFixed ? <div style={{ height: '50px' }} /> : null}
+
       <nav
         className={cx('main__nav--small', {
-          '--fixed': menuFixed,
+          '--fixed': smallNavFixed,
         })}
       >
         <CollapsibleList
           handle={(
             <Icon
-              icon="favorite_outline"
-              onIcon="favorite"
+              icon="menu"
               onClick={() => setSmallNavOpen(!smallNavOpen)}
             />
           )}
           open={smallNavOpen}
         >
-          <div
-            style={{
-              padding: '1rem',
-              background: 'red',
-              color: 'white',
-              display: 'inline-block',
-            }}
-          >
-            Favorited!
-          </div>
+          {
+            navBarRenderData.map((section) => (
+              <ListItem
+                className={cx('nav_button', {
+                  '--focused': sectionHighlighted === section.name,
+                })}
+                onClick={() => {
+                  manualScroll.current = 1;
+                  window.scrollTo({
+                    top: section.ref.current.offsetTop - 50,
+                    behavior: 'smooth',
+                  });
+                  setSectionHighlighted(section.name);
+                  setTimeout(() => { manualScroll.current = 0; }, 1500);
+                  setSmallNavOpen(false);
+                }}
+              >
+                <span>{section.name}</span>
+              </ListItem>
+            ))
+          }
         </CollapsibleList>
       </nav>
 
