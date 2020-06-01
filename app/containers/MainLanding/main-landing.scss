@@ -90,6 +90,10 @@
     }
   }
 
+  .small-nav-snap-fix {
+    display: none;
+  }
+
   .main__nav--small {
     display: none;
     background-color: #222222;
@@ -154,6 +158,9 @@ screen and (max-device-width : 480px)
       display: none;
     }
     .main__nav--small {
+      display: block;
+    }
+    .small-nav-snap-fix {
       display: block;
     }
   }

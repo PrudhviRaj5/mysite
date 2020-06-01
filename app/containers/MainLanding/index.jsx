@@ -151,8 +151,6 @@ const MainLanding = () => {
         }
       </nav>
 
-      {smallNavFixed ? <div style={{ height: '50px' }} /> : null}
-
       <nav
         className={cx('main__nav--small', {
           '--fixed': smallNavFixed,
@@ -190,6 +188,12 @@ const MainLanding = () => {
           }
         </CollapsibleList>
       </nav>
+
+      {/* For small navbar snapping */}
+      <div
+        className="small-nav-snap-fix"
+        style={{ height: smallNavFixed ? '50px' : '0px' }}
+      />
 
       <div ref={refMap.profileRef}>
         <Profile />
