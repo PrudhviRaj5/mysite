@@ -15,6 +15,10 @@ html {
 body {
   margin: 0 auto;
   background: $bg_color_2;
+
+  .secondary-color {
+    color: #727878;
+  }
 }
 
 :root {
