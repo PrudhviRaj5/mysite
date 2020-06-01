@@ -126,7 +126,7 @@ const MainLanding = () => {
         }
       </nav>
 
-      <div style={{ height: '400px' }} ref={refMap.profileRef}>
+      <div ref={refMap.profileRef}>
         <Profile />
       </div>
 
