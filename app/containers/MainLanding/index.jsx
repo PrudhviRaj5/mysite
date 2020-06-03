@@ -135,6 +135,8 @@ const MainLanding = () => {
               className={cx('nav_button', {
                 '--focused': sectionHighlighted === section.name,
               })}
+              elevationIn={4}
+              elevationOut={4}
               onClick={() => {
                 manualScroll.current = 1;
                 window.scrollTo({

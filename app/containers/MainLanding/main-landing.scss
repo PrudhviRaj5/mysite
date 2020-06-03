@@ -47,17 +47,17 @@
     }
     .jumbo_arrow {
       height: 80px;
-      width: 100px;
+      width: 110px;
       display: block;
       position: absolute;
       bottom: 0px;
-      right: 4%;
+      right: 5%;
       background-color: #222222;
       text-align: center;
-      z-index: 6;
+      z-index: 4;
       &_icon {
         color: #FFFFFF;
-        font-size: 30px;
+        font-size: 40px;
         padding-right: 2px;
         padding-top: 20px;
         animation-name: wiggle;
@@ -72,7 +72,7 @@
   .main__nav--big {
     position: absolute;
     top: 100vh;
-    right: 60px;
+    right: 5%;
 
     &.--fixed {
       position: fixed;
@@ -81,11 +81,22 @@
 
     .nav_button {
       height: 80px;
-      width: 100px;
+      width: 110px;
+      text-align: center;
+      padding-top: 30px;
+      background-color: #222;
+      color: #eee;
+      font-size: 15px;
+
+      &:hover {
+        color: white;
+        font-weight: 700;
+      }
 
       &.--focused {
-        background-color: grey;
         color: white;
+        background-color: #22A39F;
+        font-weight: 700;
       }
     }
   }
@@ -154,6 +165,13 @@ screen and (max-device-width : 480px)
       margin-top: 54px;
     }
 
+    .main__jumbotron {
+      .jumbo_arrow {
+        width: 100%;
+        right: 0;
+      }
+    }
+
     .main__nav--big {
       display: none;
     }
@@ -164,4 +182,18 @@ screen and (max-device-width : 480px)
       display: block;
     }
   }
+}
+
+@keyframes wiggle {
+	0% {
+		padding-top: 20px;
+	}
+
+	50% {
+		padding-top: 28px;
+	}
+
+	100% {
+		padding-top: 20px;
+	}
 }
