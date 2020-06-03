@@ -14,7 +14,7 @@ const Profile = () => {
         <div className="profile-description-container">
           <div>
             <h2 className="profile-description-heading">About me</h2>
-            <p className="secondary-color">
+            <p className="secondary-color" style={{ marginRight: '10px' }}>
               5+ years experienced Senior Software Engineer with a demonstrated history
               of working in
               AI-based Startups
@@ -39,23 +39,23 @@ const Profile = () => {
           </div>
           <div>
             <h2 className="profile-description-heading">Details</h2>
-            <span>
+            <div>
               <strong>Name:</strong>
-            </span>
+            </div>
             <div className="secondary-color">
               Prudhvi Raj
             </div>
 
-            <span>
+            <div>
               <strong>Age:</strong>
-            </span>
+            </div>
             <div className="secondary-color">
               28 years
             </div>
 
-            <span>
+            <div>
               <strong>Location:</strong>
-            </span>
+            </div>
             <div className="secondary-color">
               Bengaluru, India
             </div>

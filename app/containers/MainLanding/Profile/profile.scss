@@ -24,7 +24,7 @@
         grid-gap: 20px;
         margin-top: 30px;
       
-        div {
+        .secondary-color {
           margin-bottom: 20px;
         }
         &-heading {
@@ -46,24 +46,61 @@ screen and (max-width : 700px),
 /* Smartphones (portrait and landscape) ----------- */
 screen and (max-device-width : 480px)
 {
-    .content-center-page.profile-page {
-        width: 100%;
-        margin: 0;
+  .content-center-page.profile-page {
+      width: 100%;
+      margin: 0;
+  }
+  .profile-heading {
+    font-size: 2em;
+  }
+  
+  .profile-description {
+    grid-template-columns: auto;
+    text-align: center;
+    &-container {
+      grid-template-columns: auto;
     }
-    .profile-heading {
-      font-size: 2em;
+  
+    .message-box {
+      grid-column-start: 1;
+      grid-column-end: 2;
     }
-    
-    .profile-description {
+  }
+}
+
+/* IPads (portrait) ----------- */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+{
+  .profile {
+    &-description {
       grid-template-columns: auto;
       text-align: center;
       &-container {
         grid-template-columns: auto;
       }
-    
-      .message-box {
-        grid-column-start: 1;
-        grid-column-end: 2;
-      }
     }
   }
+}
+
+/* IPads (landscape) ----------- */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px)
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2)
+{
+  .profile {
+    &-page {
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+    &-description-container {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+  }
+}
+  
