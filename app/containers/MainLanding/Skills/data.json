@@ -1,12 +1,157 @@
 {
-  "languages": [],
+  "languages": [
+    {
+      "name": "Python",
+      "score": 5
+    },
+    {
+      "name": "Javascript",
+      "score": 5
+    },
+    {
+      "name": "Typescript",
+      "score": 5
+    },
+    {
+      "name": "Java",
+      "score": 4
+    },
+    {
+      "name": "C#",
+      "score": 3.5
+    },
+    {
+      "name": "Go",
+      "score": 3
+    }
+  ],
 
   "frontend": [
-    {"name": "", "score": 4}
+    {
+      "name": "React",
+      "score": 5
+    },
+    {
+      "name": "D3",
+      "score": 5
+    },
+    {
+      "name": "Leaflet",
+      "score": 5
+    },
+    {
+      "name": "Angular",
+      "score": 4
+    },
+    {
+      "name": "Vue",
+      "score": 4
+    }
   ],
-  "backend": [],
-  "databases": [],
-  "deployment": [],
+  "backend": [
+    {
+      "name": "Django",
+      "score": 4.5
+    },
+    {
+      "name": "Node.js",
+      "score": 5
+    },
+    {
+      "name": "Flask",
+      "score": 4.5
+    },
+    {
+      "name": "Kafka",
+      "score": 4
+    },
+    {
+      "name": "Celery",
+      "score": 4
+    },
+    {
+      "name": "Rabbit MQ",
+      "score": 4
+    }
+  ],
+  "databases": [
+    {
+      "name": "Mongo",
+      "score": 5
+    },
+    {
+      "name": "Elasticsearch",
+      "score": 5
+    },
+    {
+      "name": "PostgreSQL",
+      "score": 4.5
+    },
+    {
+      "name": "MySQL",
+      "score": 4
+    },
+    {
+      "name": "ClickHouse",
+      "score": 3.5
+    },
+    {
+      "name": "Redis",
+      "score": 4
+    },
+    {
+      "name": "Aerospike",
+      "score": 4.5
+    }
+  ],
+  "deployment": [
+    {
+      "name": "Supervisor",
+      "score": 4
+    },
+    {
+      "name": "NGINX",
+      "score": 4.5
+    },
+    {
+      "name": "Docker",
+      "score": 4.5
+    },
+    {
+      "name": "Kubernetes",
+      "score": 4
+    },
+    {
+      "name": "Circle CI",
+      "score": 4
+    },
+    {
+      "name": "Jenkins",
+      "score": 3.5
+    }
+  ],
 
-  "methodology": []
+  "methodology": [
+    {
+      "name": "Scrum"
+    },
+    {
+      "name": "Agile"
+    },
+    {
+      "name": "Product Thinking"
+    },
+    {
+      "name": "Product Roadmap"
+    },
+    {
+      "name": "Rapid Prototyping"
+    },
+    {
+      "name": "Wireframing"
+    },
+    {
+      "name": "Persona & Storyboard"
+    }
+  ]
 }
