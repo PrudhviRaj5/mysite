@@ -209,7 +209,7 @@ const MainLanding = () => {
         <Education />
       </div>
 
-      <div style={{ height: '400px' }} ref={refMap.skillsRef}>
+      <div ref={refMap.skillsRef}>
         <Skills />
       </div>
 
