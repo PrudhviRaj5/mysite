@@ -31,6 +31,9 @@ const MainLanding = () => {
     skillsRef: React.createRef(),
     projectsRef: React.createRef(),
     contactRef: React.createRef(),
+    jumboRef: React.createRef(),
+    foreRef: React.createRef(),
+    backRef: React.createRef(),
   });
 
   const [bigNavFixed, setBigNavFixed] = useState(false);
@@ -98,21 +101,67 @@ const MainLanding = () => {
     }
   };
 
+  function mouseEvent (e) {
+    const wx = window.innerWidth;
+    const wy = window.innerHeight;
+
+    const xPos = e.pageX; // e.target.offsetLeft
+    const yPos = e.pageY; // e.target.offsetTop
+
+    const mouseXPercent = Math.round((xPos / wx) * 100);
+    const mouseYPercent = Math.round((yPos / wy) * 100);
+
+    const xVariance = 30;
+    const yVariance = 20;
+    const myX = -140 + xVariance * ((50 - mouseXPercent) / 100);
+    const myY = -100 + yVariance * ((50 - mouseYPercent) / 100);
+    refMap.foreRef.current.style.backgroundPositionX = `${myX}px`;
+    refMap.foreRef.current.style.backgroundPositionY = `${myY}px`;
+
+    const x2Variance = 3;
+    const y2Variance = 2;
+    const myX2 = -140 + x2Variance * ((50 - mouseXPercent) / 100);
+    const myY2 = -100 + y2Variance * ((50 - mouseYPercent) / 100);
+    refMap.backRef.current.style.backgroundPositionX = `${myX2}px`;
+    refMap.backRef.current.style.backgroundPositionY = `${myY2}px`;
+  }
+
+  function motion(event) {
+    const ag = event.accelerationIncludingGravity;
+
+    const myX = -170 - (ag.x);
+    const myX2 = -100 - (ag.x / 4);
+    refMap.foreRef.current.style.backgroundPositionX = `${myX}px`;
+    refMap.backRef.current.style.backgroundPositionY = `${myX2}px`;
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', scrollEvent);
+    refMap.jumboRef.current.addEventListener('mousemove', mouseEvent);
+    if (window.DeviceMotionEvent) {
+      window.addEventListener('devicemotion', motion);
+    }
 
-    return () => window.removeEventListener('scroll', scrollEvent);
+    return () => {
+      window.removeEventListener('scroll', scrollEvent);
+      refMap.jumboRef.current.removeEventListener('mousemove', mouseEvent);
+      if (window.DeviceMotionEvent) {
+        window.removeEventListener('devicemotion', motion);
+      }
+    };
   }, []);
 
   return (
     <div className="main__frame">
 
-      <div className="main__jumbotron">
+      <div className="main__jumbotron" ref={refMap.jumboRef}>
         <div className="jumbo_container">
           <h1>Prudhvi Raj</h1>
           <p className="lead">Engineering Manager</p>
         </div>
-        <div className="overlay" />
+        <div className="overlay_dummy" />
+        <div className="overlay background" ref={refMap.backRef} />
+        <div className="overlay foreground" ref={refMap.foreRef} />
         <VanillaPaper
           className="jumbo_arrow"
           onClick={() => window.scrollTo({

@@ -1,5 +1,5 @@
 import React, {
-  Suspense,
+  Suspense, useEffect,
 } from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route, withRouter } from 'react-router-dom';
@@ -11,6 +11,22 @@ import '../../global-styles.scss';
 
 
 const App = () => {
+  const setVh = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+
+  useEffect(() => {
+    const vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    // We listen to the resize event
+    window.addEventListener('resize', setVh);
+
+    return () => window.removeEventListener('resize', setVh);
+  }, []);
+
   return (
     <>
       <Helmet

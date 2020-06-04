@@ -2,31 +2,40 @@
   position: relative;
 
   .main__jumbotron {
-    background: no-repeat center right fixed url(http://www.pascalvangemert.nl/view/images/background.jpg);
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.pascalvangemert.nl/view/images/background.jpg', sizingMethod='scale')";
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.pascalvangemert.nl/view/images/background.jpg', sizingMethod='scale');
-    margin-bottom: 0px;
-    padding: 0px;
     position: relative;
-    height: 100vh;
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+
     .overlay {
-      background-color: #22A39F;
       position: absolute;
       top: 0px;
       bottom: 0px;
       left: 0px;
       right: 0px;
-      opacity: 0.75;
-      filter: alpha(opacity=75);
-      z-index: 2;
+      background-position-x: -140px;
+      background-position-y: -100px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      // background-attachment: fixed;
+
+      &.foreground {
+        z-index: 2;
+        background-image: url('../../assets/images/fore.png');
+      }
+
+      &.background {
+        z-index: 1;
+        background-image: url('../../assets/images/back.png');
+      }
+    }
+    .overlay_dummy {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 60%;
+      right: 0;
+      background-color: #0a2f4e;
+      z-index: 3;
     }
     .jumbo_container {
       position: relative;
@@ -170,6 +179,26 @@ screen and (max-device-width : 480px)
         width: 100%;
         right: 0;
       }
+      .overlay {
+        background-position-x: -170px;
+
+        &.foreground {
+        }
+
+        &.background {
+          background-repeat: repeat;
+        }
+      }
+      .overlay_dummy {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 70%;
+        background-color: #2a2a2a;
+      }
+      .jumbo_container {
+        top: 50%;
+      }
     }
 
     .main__nav--big {
@@ -180,6 +209,19 @@ screen and (max-device-width : 480px)
     }
     .small-nav-snap-fix {
       display: block;
+    }
+  }
+}
+
+/* fix for mobile landscape orientation */
+@media only
+screen and (max-device-height : 600px) {
+  .main__frame {
+    .main__nav--big {
+      .nav_button {
+        height: 50px;
+        padding-top: 10px;
+      }
     }
   }
 }
