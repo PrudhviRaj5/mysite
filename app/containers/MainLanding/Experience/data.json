@@ -2,19 +2,79 @@
   {
     "company": "Zylotech",
     "location": "Bangalore",
-    "fromDate": "Mar 2017",
+    "fromDate": "Mar 2019",
     "toDate": "Present",
-    "designation": "Tech Lead",
+    "designation": "Engineering Manager",
     "website": "http://zylotech.com",
-    "content": "Blah Blah Blah"
+    "content": [
+      {
+        "overview": "Zylotech is a self-learning B2B customer data platform that ensures customer profile enrichment, predicts purchases, and brings relevancy-based recommendations towards unprecedented lift.",
+        "bullets": [
+          "Integral part of the core engineering team.",
+          "Implemented these processes to reduce costs and scale up more rapidly",
+          "CDP platform for B2B enterprise companies",
+          "Data health for quick EDA app to help sales and demos",
+          "Uncover solution to see the traction of the visitors and pitched as a solution to be added in CDP platform"
+        ]
+      }
+    ]
   },
   {
-    "company": "Quantum Graph",
+    "company": "Zylotech",
     "location": "Bangalore",
     "fromDate": "Mar 2017",
-    "toDate": "Present",
-    "designation": "Tech Lead",
-    "website": "http://zylotech.com",
-    "content": "Blah Blah Blah",
+    "toDate": "Mar 2019",
+    "designation": "Technical Lead",
+    "website": "https://zylotech.com",
+    "content": [
+      {
+        "overview": "Zylotech is a self-learning B2B customer data platform that ensures customer profile enrichment, predicts purchases, and brings relevancy-based recommendations towards unprecedented lift.",
+        "bullets": [
+          "One of the first engineering full time employees",
+          "Helped setup bangalore office and culture",
+          "Wore multiple hats to innovate and build the product",
+          "Pitched Zylotech solution in Autobahn by Daimler",
+          "Led a team to build our first B2C retail app with Auto cohorting and Customer-360 features",
+          "Built an integration platform as a micro-service to fetch clients data. Includes Salesforce, marketo, Hubspot, Bronto and other databases"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "QuantumGraph",
+    "location": "Bangalore",
+    "fromDate": "Feb 2016",
+    "toDate": "Mar 2017",
+    "designation": "Software Engineer",
+    "website": "https://qgraph.io",
+    "content": [
+      {
+        "overview": "Appier is a technology company which aims to provide artificial intelligence platforms to help enterprises solve their most challenging business problems. Appier was established in 2012 by a passionate team of computer scientists and engineers with expertise in AI, data analysis, distributed systems, and marketing.",
+        "bullets": [
+          "Joined in a small and talented engineering core team after the company has raised the initial seed funding.",
+          "Worked as a hustler and support system for all other teams, by constantly juggling between sdk, frontend, backend, and scaling teams.",
+          "Data ingestion scale was close to million events / minute. Our biggest customers were Lenskart and Railyatri and 200 other clients globally.",
+          "Been part of both campaigns team and analytics team which gave me complete idea about the end-to-end product in tech stack and I was glad to be play a critical role in the company",
+          "Built in-house low cost monitoring service to watch all the micro-services that are running in the cloud and integrated an alert module in case of a failure with consolidated logs."
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Sentieo",
+    "location": "Delhi",
+    "fromDate": "Jul 2015",
+    "toDate": "Jan 2016",
+    "designation": "Full Stack Developer",
+    "website": "https://sentieo.com/",
+    "content": [
+      {
+        "overview": "Sentieo is a financial and corporate research platform that empowers competitive investors and corporations to rapidly and confidently discover the insights they need to win.",
+        "bullets": [
+          "Primarily worked in the search engine team which is the core feature of the application. Redesigned filter section and auto-scrolling for the highlighted snippets in the document for better view of the results.",
+          "Worked on parsing the documents scrapped by the scrapping team. Made the parsing pretty much real-time to index them into elastic search and also store in the main database mongo db."
+        ]
+      }
+    ]
   }
 ]
