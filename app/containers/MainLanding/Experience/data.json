@@ -6,6 +6,7 @@
     "toDate": "Present",
     "designation": "Engineering Manager",
     "website": "http://zylotech.com",
+    "logo": "zylotech.png",
     "content": [
       {
         "overview": "Zylotech is a self-learning B2B customer data platform that ensures customer profile enrichment, predicts purchases, and brings relevancy-based recommendations towards unprecedented lift.",
@@ -26,6 +27,7 @@
     "toDate": "Mar 2019",
     "designation": "Technical Lead",
     "website": "https://zylotech.com",
+    "logo": "zylotech.png",
     "content": [
       {
         "overview": "Zylotech is a self-learning B2B customer data platform that ensures customer profile enrichment, predicts purchases, and brings relevancy-based recommendations towards unprecedented lift.",
@@ -47,6 +49,7 @@
     "toDate": "Mar 2017",
     "designation": "Software Engineer",
     "website": "https://qgraph.io",
+    "logo": "qgraph.png",
     "content": [
       {
         "overview": "Appier is a technology company which aims to provide artificial intelligence platforms to help enterprises solve their most challenging business problems. Appier was established in 2012 by a passionate team of computer scientists and engineers with expertise in AI, data analysis, distributed systems, and marketing.",
@@ -67,6 +70,7 @@
     "toDate": "Jan 2016",
     "designation": "Full Stack Developer",
     "website": "https://sentieo.com/",
+    "logo": "sentieo.png",
     "content": [
       {
         "overview": "Sentieo is a financial and corporate research platform that empowers competitive investors and corporations to rapidly and confidently discover the insights they need to win.",
