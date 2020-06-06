@@ -215,7 +215,8 @@ screen and (max-device-width : 480px)
 
 /* fix for mobile landscape orientation */
 @media only
-screen and (max-device-height : 600px) {
+screen and (max-device-height : 600px)
+and (orientation: landscape) {
   .main__frame {
     .main__nav--big {
       .nav_button {
