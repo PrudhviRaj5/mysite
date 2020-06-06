@@ -250,7 +250,7 @@ const MainLanding = () => {
         <Profile />
       </div>
 
-      <div style={{ height: '400px' }} ref={refMap.experienceRef}>
+      <div ref={refMap.experienceRef}>
         <Experience />
       </div>
 
